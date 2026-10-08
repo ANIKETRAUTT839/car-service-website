@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100..900&display=swap');
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* ================= VARIABLES ================= */
+:root {
+  --lead: #212121;
+  --gold-finger: #FDBD12;
+  --eye-ball: #FFFDF7;
+  --hint-yellow: #FCF1CC;
+  --pure-white: #FFFFFF;
+}
+
+/* ================= BASE ================= */
+body {
+  background: var(--eye-ball);
+}
+
+body.cart-open::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 90;
+}
+
+a {
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--lead);
+}
+
+li { list-style: none; }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ================= UTILITIES ================= */
+.flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.between { justify-content: space-between; }
+
+.gap-2 { gap: 2rem; }
+.gap-3 { gap: 3rem; }
+
+.wrapper {
+  max-width: 1400px;
+  margin: auto;
+  padding-inline: 1.5rem;
+}
+
+.p-top { padding-top: 10rem; }
+.text-center { text-align: center; }
+.mt-4 { margin-top: 4rem; }
+.mt-half { margin-top: .5rem; }
+.mt-one-half { margin-top: 1.5rem; }
+
+/* ================= HEADER ================= */
+.navbar { min-height: 14vh; }
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--gold-finger);
+}
+
+.btn {
+  padding: .9rem 1.5rem;
+  background: var(--gold-finger);
+  border-radius: 1rem;
+  color: var(--pure-white);
+  transition: .3s ease;
+}
+
+.btn:hover { background: var(--lead); }
+
+/* ================= CART ICON ================= */
+.cart-icon {
+  font-size: 1.3rem;
+  position: relative;
+  cursor: pointer;
+  transition: color .3s ease;
+}
+
+.cart-icon i {
+  transition: transform .3s ease;
+}
+
+.cart-icon.active {
+  color: var(--gold-finger);
+}
+
+.cart-icon.active i {
+  transform: scale(1.15);
+}
+
+.cart-value {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold-finger);
+  font-size: .85rem;
+  line-height: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--pure-white);
+}
+
+/* ================= MOBILE NAV ================= */
+.hamburger,
+.mobile-menu {
+  display: none;
+}
+
+/* ================= HERO ================= */
+.hero-section {
+  min-height: calc(100vh - 14vh);
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+  text-align: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.content,
+.image-container,
+.service-card {
+  flex: 1;
+  flex-basis: 300px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5.6vw, 5rem);
+}
+
+h1 span { color: var(--gold-finger); }
+
+p {
+  font-size: 1.2rem;
+  color: grey;
+  line-height: 1.8rem;
+}
+
+.para { margin-block: 2rem; }
+
+/* ================= SOCIAL ICONS ================= */
+.social-icons {
+  width: 3rem;
+  height: 3rem;
+  background: var(--hint-yellow);
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 3rem;
+  transition: .3s;
+}
+
+.social-icons:hover {
+  background: var(--lead);
+  color: var(--pure-white);
+}
+
+/* ================= HEADINGS ================= */
+h5 {
+  letter-spacing: .2rem;
+  color: var(--gold-finger);
+  text-transform: uppercase;
+}
+
+h2 { font-size: 3rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.8rem; }
+
+/* ================= COLLECTION ================= */
+.order-bikes {
+  background: var(--pure-white);
+  padding: 1rem 1rem 2rem;
+  border: 1px solid var(--gold-finger);
+  border-radius: 2rem;
+  box-shadow: rgba(0,0,0,.08) 0 8px 16px;
+}
+
+.order-bikes img {
+  width: 15rem;
+  margin-bottom: 1rem;
+}
+
+.price {
+  color: var(--gold-finger);
+  margin: 1rem 0 2rem;
+}
+
+/* ================= CART TAB ================= */
+.cart-tab {
+  background: var(--hint-yellow);
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 25rem;
+  height: 100vh;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 99;
+  box-shadow: rgba(0,0,0,.15) -6px 0 20px;
+  transition: right .3s ease-in-out;
+}
+
+.cart-tab-active { right: 0; }
+
+.cart-list {
+  flex: 1;
+  margin-top: 1.5rem;
+  overflow-y: auto;
+}
+
+.cart-list::-webkit-scrollbar { width: 0; }
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: .1rem;
+  padding: .7rem 1rem;
+  justify-content: space-between;
+  transition: all .5s ease-in-out;
+}
+.item.slide-out{
+  transform: translate(50%);
+}
+.item .detail{
+  flex: 2;
+  
+}
+
+.cart-list .item:nth-child(even) {
+  background: var(--eye-ball);
+}
+
+.item-image img { width: 5rem; border-radius: 1rem; }
+
+.item-info h4 {
+  font-size: 1.3rem;
+  color: var(--lead);
+}
+
+.total-item {
+  font-size: 1.2rem;
+  margin-top: .3rem;
+}
+
+/* ================= QUANTITY ================= */
+.quantity-btn {
+  background: var(--lead);
+  color: var(--pure-white);
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.7rem;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.quantity-btn:hover {
+  background: var(--gold-finger);
+  color: var(--lead);
+}
+
+.quantity-value {
+  font-size: 1.2rem;
+  margin-inline: .6rem;
+}
+
+/* ================= TOTAL & BUY ================= */
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--lead);
+  margin-top: 1rem;
+}
+
+.buy-btn {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--gold-finger);
+  border-radius: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--pure-white);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buy-btn:hover {
+  background: var(--lead);
+}
+
+/* ================= REVIEWS ================= */
+.review-container {
+  width: 650px;
+  max-width: 100%;
+}
+
+.profile {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fa-star { color: var(--gold-finger); }
+
+/* ================= APP ================= */
+.app-container {
+  background: var(--hint-yellow);
+  padding: 3rem 6rem;
+  border-radius: 3rem;
+}
+
+.app-container h2 { font-size: 4.5rem; }
+
+.app-container img { width: 25rem; }
+
+/* ================= SUBSCRIBE ================= */
+.input-container {
+  width: 43rem;
+  max-width: 100%;
+  background: var(--pure-white);
+  padding: .8rem;
+  border-radius: 1rem;
+  margin: 4rem auto 0;
+  box-shadow: rgba(0,0,0,.1) 0 5px 8px;
+}
+
+input[type="email"] {
+  flex: 1;
+  border: none;
+  font-size: 1.1rem;
+  padding-left: 1rem;
+}
+
+input[type="email"]:focus { outline: none; }
+
+/* ================= FOOTER ================= */
+.footer-container {
+  margin-top: 10rem;
+  padding-block: 4rem;
+  background: var(--hint-yellow);
+}
+
+.footer-container.flex { align-items: flex-start; }
+
+.footer-wrapper {
+  flex: 1;
+  flex-basis: 150px;
+}
+
+.footer-wrapper:first-child {
+  flex: 2;
+  flex-basis: 300px;
+}
+
+.footer-link {
+  color: grey;
+  transition: .3s;
+}
+
+.footer-link:hover { color: var(--lead); }
+
+/* ================= MEDIA QUERIES ================= */
+@media screen and (max-width: 780px) {
+
+  .navlist,
+  .desktop-action .btn {
+    display: none;
+  }
+
+  .desktop-action .hamburger {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20rem;
+    padding: 2rem;
+    background: var(--pure-white);
+    border: .1rem solid var(--gold-finger);
+    border-radius: 2rem;
+  }
+
+  h1 { font-size: 3.6rem; }
+
+  .cart-tab { width: 100%; }
+
+  .app-container {
+    padding: 2.2rem;
+  }
+
+  .app-container h2 {
+    font-size: 3.5rem;
+  }
+}

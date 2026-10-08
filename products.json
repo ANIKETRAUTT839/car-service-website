@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Harley Davidson",
+        "price": 1200000,
+        "image": "—Pngtree—cafe race motor vector -_4768167.png"
+    },
+    {
+        "id": 2,
+        "name": "Black Car",
+        "price": 5000000,
+        "image": "vecteezy_a-black-car-on-a-transparent-background_53016763.png"
+    },
+    {
+        "id": 3,
+        "name": "Modern Luxury Car",
+        "price": 7500000,
+        "image": "vecteezy_modern-luxury-car-isolated-on-transparent-background_47242694.png"
+    },
+    {
+        "id": 4,
+        "name": "White Sport Car",
+        "price": 6500000,
+        "image": "vecteezy_white-sport-car-on-transparent-background-3d-rendering_25305916.png"
+    }
+]
